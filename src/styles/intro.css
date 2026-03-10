@@ -1,0 +1,164 @@
+/* ── Intro Screen ── */
+.intro-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.intro-crest {
+  font-size: 64px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 20px rgba(212, 160, 23, 0.6));
+  animation: floatCrest 3s ease-in-out infinite;
+}
+
+@keyframes floatCrest {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.intro-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(30px, 5.2vw, 56px);
+  color: var(--gold);
+  text-shadow: 0 0 40px rgba(212, 160, 23, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.intro-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  color: var(--gold-dim);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+/* ── Parchment Card ── */
+.parchment-card {
+  background: linear-gradient(135deg, var(--bg-panel) 0%, var(--bg-card) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 40px;
+  max-width: 640px;
+  width: 100%;
+  box-shadow:
+    0 0 60px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(212, 160, 23, 0.2),
+    inset 0 -1px 0 rgba(212, 160, 23, 0.1);
+  position: relative;
+}
+
+.parchment-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212, 160, 23, 0.1);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* Corner accents */
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(212, 160, 23, 0.5);
+  border-style: solid;
+}
+.corner-tl { top: 4px;    left: 4px;   border-width: 2px 0 0 2px; }
+.corner-tr { top: 4px;    right: 4px;  border-width: 2px 2px 0 0; }
+.corner-bl { bottom: 4px; left: 4px;   border-width: 0 0 2px 2px; }
+.corner-br { bottom: 4px; right: 4px;  border-width: 0 2px 2px 0; }
+
+/* ── Form Elements ── */
+.form-section {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.form-label {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.name-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  color: var(--text-primary);
+  font-family: 'EB Garamond', serif;
+  font-size: 22px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.name-input:focus       { border-color: rgba(212, 160, 23, 0.6); }
+.name-input::placeholder { color: var(--gold-deep); }
+
+/* ── Option Grids ── */
+.grid-races  { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.grid-classes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+
+.option-btn {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  color: var(--text-muted);
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  padding: 10px 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.option-btn:hover           { border-color: rgba(212, 160, 23, 0.5); color: var(--gold); }
+.option-btn.selected {
+  background: rgba(212, 160, 23, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 12px rgba(212, 160, 23, 0.2);
+}
+
+.race-bonus {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-dim);
+  margin-top: 8px;
+  min-height: 18px;
+  text-align: center;
+}
+
+/* ── Begin Button ── */
+.begin-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #8B5E0A, var(--gold), #8B5E0A);
+  background-size: 200% auto;
+  border: none;
+  color: var(--bg-base);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 17px;
+  letter-spacing: 3px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.begin-btn:hover:not(:disabled) {
+  background-position: right center;
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.4);
+}
+.begin-btn:disabled { opacity: 0.4; cursor: not-allowed; }

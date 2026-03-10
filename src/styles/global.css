@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a0806;
+  color: #e8d5b0;
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+}
+
+/* ── CSS Variables ── */
+:root {
+  --gold:        #d4a017;
+  --gold-dim:    #bea173;
+  --gold-dark:   #5a4a2a;
+  --gold-deep:   #8d744e;
+  --bg-base:     #0a0806;
+  --bg-card:     rgba(30, 18, 9, 0.98);
+  --bg-panel:    rgba(45, 28, 15, 0.96);
+  --bg-surface:  rgba(10, 7, 5, 0.78);
+  --bg-surface-strong: rgba(9, 7, 5, 0.9);
+  --text-primary: #e8d5b0;
+  --text-muted:   #c6ad87;
+  --text-dim:     #b49a74;
+  --red-hp:      #cf5a4d;
+  --red-dark:    #8B0000;
+  --border-gold: rgba(212, 160, 23, 0.3);
+  --border-subtle: rgba(212, 160, 23, 0.24);
+}
+
+/* ── Root wrapper ── */
+.dm-root {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(139, 69, 19, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(72, 30, 10, 0.16) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(255, 255, 255, 0.005) 2px, rgba(255, 255, 255, 0.005) 4px
+    ),
+    var(--bg-base);
+}

@@ -1,0 +1,74 @@
+/* ── End Screens (Death & Victory) ── */
+.endscreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.end-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.end-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(34px, 5.2vw, 60px);
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px currentColor;
+}
+
+.end-reason {
+  font-size: 22px;
+  font-style: italic;
+  color: var(--gold-dim);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.restart-btn {
+  background: transparent;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.restart-btn:hover {
+  background: rgba(212, 160, 23, 0.1);
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.3);
+}
+
+/* ── Notification Toast ── */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(30, 20, 5, 0.97);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  padding: 12px 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  animation: slideInNotif 0.3s ease, fadeOutNotif 0.3s ease 2.7s forwards;
+  z-index: 100;
+  max-width: 300px;
+}
+
+@keyframes slideInNotif {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes fadeOutNotif {
+  to { opacity: 0; transform: translateX(20px); }
+}
