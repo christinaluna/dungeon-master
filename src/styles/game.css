@@ -241,7 +241,7 @@
   z-index: 46;
   background: var(--bg-surface-strong);
   border-left: 1px solid var(--border-subtle);
-  padding: 22px 16px;
+  padding: 22px 16px calc(22px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -274,6 +274,10 @@
 
 .mobile-flyout-close:hover {
   background: rgba(212, 160, 23, 0.12);
+}
+
+.mobile-flyout .new-char-btn {
+  margin-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
 }
 
 /* ── Main Area ── */

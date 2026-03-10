@@ -49,7 +49,7 @@ export default function CharacterSidebar({ character, onRestart }) {
         </ul>
       </div>
 
-      <button className="new-char-btn" onClick={onRestart}>↩ New Character</button>
+      <button className="new-char-btn" onClick={onRestart}>New Character</button>
     </aside>
   );
 }

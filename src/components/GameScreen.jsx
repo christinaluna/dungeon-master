@@ -170,7 +170,7 @@ export default function GameScreen({
               </ul>
             </div>
 
-            <button className="new-char-btn" onClick={onRestart}>↩ New Character</button>
+            <button className="new-char-btn" onClick={onRestart}>New Character</button>
           </aside>
         </>
       )}
