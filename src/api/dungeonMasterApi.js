@@ -1,6 +1,6 @@
 import { SYSTEM_PROMPT, MODEL, MAX_TOKENS } from "../constants/prompts";
 
-const API_URL = `/api/v1beta/models/${MODEL}:generateContent`;
+const API_URL = "/api/gemini";
 
 /**
  * Builds the user message content for the DM API call.
@@ -42,6 +42,7 @@ export async function callDungeonMaster(character, history, action, roll, outcom
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
+      model: MODEL,
       systemInstruction: {
         parts: [{ text: SYSTEM_PROMPT }],
       },

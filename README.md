@@ -8,6 +8,8 @@ A full React application that uses Google AI Studio (Gemini API) to run an immer
 
 ```text
 dungeon-master/
+├── api/
+│   └── gemini.js                 # Vercel serverless Gemini proxy route
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -61,8 +63,10 @@ Copy `.env.example` to `.env` and paste your key:
 GEMINI_API_KEY=YOUR_KEY_HERE
 ```
 
-This app is configured to call Gemini through a Vite proxy so the browser only hits `/api/...` routes.
-The proxy appends your key server-side during local development.
+This app calls a backend route at `/api/gemini`.
+
+- In production (Vercel), `/api/gemini` is served by `api/gemini.js`.
+- In local dev (`npm run dev`), Vite proxies `/api/gemini` to Gemini directly.
 
 Current proxy config in `vite.config.js`:
 
@@ -71,21 +75,19 @@ import { defineConfig, loadEnv } from "vite";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  const model = env.GEMINI_MODEL || "gemini-2.5-flash";
 
   return {
-server: {
-  proxy: {
-    "/api": {
-      target: "https://generativelanguage.googleapis.com",
-      changeOrigin: true,
-      rewrite: (path) => {
-        const rewritten = path.replace(/^\/api/, "");
-        const sep = rewritten.includes("?") ? "&" : "?";
-        return `${rewritten}${sep}key=${env.GEMINI_API_KEY}`;
+    server: {
+      proxy: {
+        "/api/gemini": {
+          target: "https://generativelanguage.googleapis.com",
+          changeOrigin: true,
+          rewrite: () =>
+            `/v1beta/models/${model}:generateContent?key=${env.GEMINI_API_KEY}`,
+        },
       },
     },
-  },
-},
   };
 });
 ```
@@ -93,7 +95,7 @@ server: {
 `src/api/dungeonMasterApi.js` should target:
 
 ```js
-const API_URL = `/api/v1beta/models/${MODEL}:generateContent`;
+const API_URL = "/api/gemini";
 ```
 
 Do not commit `.env` or hardcode API keys in client-side source files.
