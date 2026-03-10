@@ -161,7 +161,7 @@ export default function GameScreen({
               </div>
             </div>
 
-            <div style={{ flex: 1 }}>
+            <div className="mobile-flyout-inventory">
               <div className="sidebar-label">Inventory</div>
               <ul className="inventory-list">
                 {character.inventory.map((item, i) => (

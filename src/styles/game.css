@@ -276,8 +276,13 @@
   background: rgba(212, 160, 23, 0.12);
 }
 
+.mobile-flyout-inventory {
+  flex: initial;
+}
+
 .mobile-flyout .new-char-btn {
-  margin-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  margin-top: 6px;
+  margin-bottom: 0;
 }
 
 /* ── Main Area ── */
