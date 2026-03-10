@@ -111,6 +111,13 @@
 .grid-races  { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
 .grid-classes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
 
+@media (max-width: 768px) {
+  .grid-races,
+  .grid-classes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .option-btn {
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(212, 160, 23, 0.2);
