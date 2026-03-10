@@ -8,7 +8,7 @@ You will receive:
 
 Your response MUST be valid JSON with this exact structure:
 {
-  "narration": "2-3 paragraphs of vivid, atmospheric storytelling based on the dice outcome. Critical fail = disaster. Fail = setback. Partial = mixed result. Success = triumph. Critical success = legendary moment.",
+  "narration": "1 rich paragraph (4-6 sentences) of vivid, atmospheric storytelling based on the dice outcome. Critical fail = disaster. Fail = setback. Partial = mixed result. Success = triumph. Critical success = legendary moment.",
   "choices": ["Choice A (action verb phrase)", "Choice B (action verb phrase)", "Choice C (action verb phrase)"],
   "hpChange": 0,
   "itemGained": null,
@@ -28,4 +28,4 @@ Rules:
 - Make the world feel dangerous, beautiful, and alive.`;
 
 export const MODEL = "gemini-2.5-flash";
-export const MAX_TOKENS = 1000;
+export const MAX_TOKENS = 1600;
