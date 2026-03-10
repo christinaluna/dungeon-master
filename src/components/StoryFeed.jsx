@@ -6,14 +6,16 @@ import "../styles/game.css";
  * @param {{ entries: Array, loading: boolean }} props
  */
 export default function StoryFeed({ entries, loading }) {
-  const bottomRef = useRef(null);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, [entries, loading]);
 
   return (
-    <div className="story-scroll">
+    <div className="story-scroll" ref={scrollRef}>
       {entries.map((entry, i) => (
         <div key={i} className="story-entry">
           {entry.type === "action" && (
@@ -52,8 +54,6 @@ export default function StoryFeed({ entries, loading }) {
           The Dungeon Master weaves thy fate...
         </div>
       )}
-
-      <div ref={bottomRef} />
     </div>
   );
 }
