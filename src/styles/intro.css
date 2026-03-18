@@ -85,8 +85,8 @@
 
 .form-label {
   font-family: 'Cinzel', serif;
-  font-size: 12px;
-  letter-spacing: 3px;
+  font-size: 14px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold-dim);
   margin-bottom: 10px;
@@ -151,9 +151,9 @@
 /* ── Begin Button ── */
 .begin-btn {
   width: 100%;
-  background: linear-gradient(135deg, #8B5E0A, var(--gold), #8B5E0A);
+  background: linear-gradient(135deg, #a16d10, var(--gold), #a16d10);
   background-size: 200% auto;
-  border: none;
+  border: 1px solid rgba(212, 160, 23, 0.65);
   color: var(--bg-base);
   font-family: 'Cinzel Decorative', serif;
   font-size: 17px;
@@ -168,4 +168,4 @@
   background-position: right center;
   box-shadow: 0 0 30px rgba(212, 160, 23, 0.4);
 }
-.begin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.begin-btn:disabled { opacity: 0.65; cursor: not-allowed; }

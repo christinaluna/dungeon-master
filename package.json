@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "agentation": "^2.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
