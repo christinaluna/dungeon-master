@@ -3,7 +3,7 @@ import CharacterCreation from "./components/CharacterCreation";
 import GameScreen from "./components/GameScreen";
 import EndScreen from "./components/EndScreen";
 import { Agentation} from "agentation";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react";
 import "./styles/global.css";
 import "./styles/endScreens.css";
 
@@ -63,7 +63,7 @@ export default function App() {
           <EndScreen phase={phase} reason={endReason} onRestart={restart} />
         </div>
       )}
-      {process.env.NODE_ENV === "development" && (
+      {import.meta.env.DEV && (
         <Agentation />
       )}
       <Analytics />
