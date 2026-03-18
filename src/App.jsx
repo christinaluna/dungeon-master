@@ -63,7 +63,7 @@ export default function App() {
           <EndScreen phase={phase} reason={endReason} onRestart={restart} />
         </div>
       )}
-      {import.meta.env.DEV && (
+      {process.env.NODE_ENV === "development" && (
         <Agentation />
       )}
       <Analytics />
